@@ -1,0 +1,52 @@
+
+CASE_01 | 2026-01 | ITEM_A | PLANT_1 | available=100
+  request      destination    priority     demand  allocated
+  R-101        DC_A                  1         40         25
+  R-102        DC_B                  1         40         25
+  R-103        DC_C                  1         40         25
+  allocated=75; unallocated=25
+
+CASE_02 | 2026-01 | ITEM_A | PLANT_1 | available=100
+  request      destination    priority     demand  allocated
+  R-201        DC_A                  1         50         40
+  R-202        DC_B                  1         50         30
+  R-203        DC_C                  1         50         30
+  R-204        DC_D                  1         50          0
+  allocated=100; unallocated=0
+
+CASE_03 | 2026-01 | ITEM_B | PLANT_1 | available=60
+  INVALID: R-302: demand_qty must be an integer >= 0; R-304: rounding_value must be an integer >= 1
+  No allocation plan; the case is held for correction.
+
+CASE_04 | 2026-01 | ITEM_B | PLANT_1 | available=97
+  request      destination    priority     demand  allocated
+  R-401        DC_A                  2         25         20
+  R-402        DC_B                  2         25         20
+  R-403        DC_C                  2         25         19
+  R-404        DC_D                  2         25         19
+  R-405        DC_E                  2         25         19
+  allocated=97; unallocated=0
+
+CASE_05 | 2026-01 | ITEM_C | PLANT_2 | available=500
+  request      destination    priority     demand  allocated
+  R-501        DC_A                  1         40         25
+  R-502        DC_B                  2         33         30
+  R-503        DC_C                  3          7          5
+  allocated=60; unallocated=440
+
+CASE_06 | 2026-01 | ITEM_C | PLANT_2 | available=200
+  request      destination    priority     demand  allocated
+  R-601        DC_A                  1        100        100
+  R-602        DC_B                  1        100          0
+  R-603        DC_C                  2         80         77
+  allocated=177; unallocated=23
+  Cannot ship without oversupply: R-602
+
+CASE_07 | 2026-01 | ITEM_D | PLANT_2 | available=100
+  request      destination    priority     demand  allocated
+  R-701        DC_A                  1        100        100
+  R-702        DC_B                  2         10          0
+  R-703        DC_C                  3         10          0
+  allocated=100; unallocated=0
+
+Cases: 7; planned: 6; invalid: 1
