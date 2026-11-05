@@ -1,6 +1,13 @@
 # SNP Heuristic: распределение дефицита
 
-Python 3.10+, стандартная библиотека. После клонирования, из каталога репозитория:
+Python 3.10+, стандартная библиотека. Получить ветку с готовым решением:
+
+```sh
+git clone --branch codex/snp-heuristic https://github.com/Sonti22/snp-heuristic.git
+cd snp-heuristic
+```
+
+Запустить одной командой из каталога репозитория:
 
 ```sh
 python main.py
